@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>temperature converter</title>
+    <style>
+        body {
+            padding: 50px 100px;
+        }
+
+        h1 {
+            text-align: center;
+            text-transform: capitalize;
+            color: rgb(23, 34, 56);
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        #container {
+            background-color: brown;
+            text-align: center;
+            padding: 50px;
+            width: 700px;
+            text-align: center;
+            border-radius: 20px;
+        }
+
+        .input-div {
+            display: inline-block;
+        }
+
+        .inp {
+            padding: 10px;
+            margin: 10px;
+            font-size: 30px;
+            font-weight: bold;
+            width: 250px;
+            text-align: center;
+        }
+
+        label {
+            font-size: 22px;
+            text-transform: capitalize;
+            color: rgb(11, 214, 25);
+        }
+
+        h2 {
+            text-align: right;
+            margin-right: 150px;
+            text-transform: capitalize;
+            color: blue;
+        }
+
+        .pan {
+            margin-right: 135px;
+            margin-top: -20px;
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>temperature converter</h1>
+    <center>
+        <div id="container">
+            <div class="input-div">
+                <label for="">celsius</label><br>
+                <input type="number" value="0" id="cel" class="inp">
+
+
+            </div>
+            <div class="input-div">
+                <label for="">fehrenheit</label><br>
+                <input type="number" value="32" id="feh" class="inp">
+
+            </div>
+        </div>
+    </center>
+
+    <script>
+        var cel = document.getElementById("cel");
+        var feh = document.getElementById("feh");
+        cel.addEventListener('input', function () {
+            let c = this.value;
+            let f = (c * 9 / 5) + 32;
+            feh.value = f;
+            if (!Number.isInteger(f)) {
+                feh.value = f.toFixed(4);
+            }
+        });
+        feh.addEventListener('input', function () {
+            let f = this.value;
+            let c = (f - 32) * 5 / 9;
+            cel.value = c;
+            if (!Number.isInteger(c)) {
+                cel.value = c.toFixed(4);
+            }
+        });
+
+
+    </script>
+
+
+
+</body>
+
+</html>
